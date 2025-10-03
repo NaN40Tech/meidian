@@ -58,11 +58,12 @@ const menus = [
 ];
 
 const features = [
-  { title: "Homemade Fresh", desc: "Dibuat setiap hari tanpa pengawet.", icon: "🥟" },
-  { title: "Harga Terjangkau", desc: "Mulai Rp2.000-an aja!", icon: "💸" },
-  { title: "Varian Lengkap", desc: "Shumai, Gyoza, Mi Bayam, Donat, Chili Oil.", icon: "🍜" },
-  { title: "Bisa Order Online", desc: "GoFood, GrabFood, ShopeeFood & WhatsApp.", icon: "📱" },
+  { title: "Homemade Fresh", desc: "Dibuat setiap hari tanpa pengawet.", icon: "/icons/fresh.webp" },
+  { title: "Harga Terjangkau", desc: "Mulai Rp2.000-an aja!", icon: "/icons/money.webp" },
+  { title: "Varian Lengkap", desc: "Shumai, Gyoza, Mi Bayam, Donat, Chili Oil.", icon: "/icons/menu.webp" },
+  { title: "Bisa Order Online", desc: "GoFood, GrabFood, ShopeeFood & WhatsApp.", icon: "/icons/order.webp" },
 ];
+
 
 /* ----------------- Reviews Section ----------------- */
 function Reviews() {
@@ -146,9 +147,9 @@ useEffect(() => {
   return (
     <section id="testimonials" className="py-20 bg-[#FFF8ED]">
       <div className="max-w-6xl mx-auto px-6 relative">
-        <h2 className="text-3xl font-bold mb-10 text-center text-[var(--foreground)]">
-          Apa Kata Mereka
-        </h2>
+        <h2 className="text-3xl font-bold text-center text-[var(--foreground)] mb-4">
+    Apa Kata <span className="text-[var(--primary)]">Mereka</span>
+  </h2>
 
         {/* Wrapper */}
 <div className="overflow-hidden">
@@ -178,7 +179,6 @@ useEffect(() => {
     ))}
   </div>
 </div>
-
 
         {/* Arrows */}
         {start > 0 && (
@@ -254,81 +254,111 @@ export default function Home() {
     <main className="font-sans">
       <Navbar />
 
-      {/* Hero */}
-      <section
-        id="home"
-        className="relative min-h-screen flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 pt-24
-        bg-gradient-to-b from-[#FFF8ED] to-white overflow-hidden"
+{/* Hero */}
+<section
+  id="home"
+  className="relative min-h-screen flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 pt-24
+  bg-[linear-gradient(180deg,_#ffffff_0%,_rgba(255,214,217,0.7)_60%,_rgba(255,214,217,0)_100%)] overflow-hidden"
+>
+
+  {/* Teks */}
+  <div className="flex-1 relative z-10">
+    <span className="inline-block bg-[var(--primary)]/10 text-[var(--primary)] font-semibold text-sm px-4 py-1 rounded-full mb-4">
+      Fresh Dimsum Every Day
+    </span>
+
+    <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-[#171717] leading-tight">
+      <span className="block">Dimsum Homemade</span>
+      <span className="text-[var(--primary)]">Fresh</span> &{" "}
+      <span className="text-[var(--primary)]">Tanpa Pengawet</span>
+    </h1>
+
+    <p className="text-lg md:text-xl text-gray-600 max-w-xl mb-8">
+      Mulai Rp2.000-an, cocok untuk keluarga, arisan, ulang tahun, hingga bingkisan
+    </p>
+
+    <div className="flex gap-3 justify-center md:justify-start">
+      <a
+        href="#order"
+        className="bg-[var(--primary)] text-white px-5 py-3 rounded-lg font-semibold shadow-md hover:bg-[#c92f3d] transition transform hover:scale-105"
       >
-        <div className="absolute inset-0 bg-gradient-radial from-[#FFD6D9]/30 via-transparent to-transparent"></div>
-        <div className="absolute top-20 -left-20 w-60 h-60 bg-[var(--primary)]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 -right-20 w-72 h-72 bg-[#FFD6D9]/40 rounded-full blur-3xl"></div>
+        Pesan
+      </a>
+      <a
+        href="#menu"
+        className="border-2 border-[var(--primary)] text-[var(--primary)] px-5 py-3 rounded-lg font-medium hover:bg-[var(--primary)] hover:text-white hover:shadow-md transition transform hover:scale-105"
+      >
+        Menu
+      </a>
+    </div>
+  </div>
 
-        <div className="flex-1 relative z-10">
-          <span className="inline-block bg-[var(--primary)]/10 text-[var(--primary)] font-semibold text-sm px-4 py-1 rounded-full mb-4">
-            Fresh Dimsum Every Day
-          </span>
+  {/* Hero Image */}
+  <div className="flex-1 relative mt-10 md:mt-0 flex items-center justify-center">
+    <div className="relative w-[70vw] max-w-[550px] aspect-square">
+      <Image
+        src="/menu/hero.png"
+        alt="Shumai Dimsum Homemade Mei Dian"
+        fill
+        quality={90}
+        priority
+        className="object-contain drop-shadow-xl z-10 p-6"
+      />
+    </div>
+  </div>
+</section>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-[#171717] leading-tight">
-            <span className="block">Dimsum Homemade</span>
-            <span className="text-[var(--primary)]">Fresh</span> &{" "}
-            <span className="text-[var(--primary)]">Tanpa Pengawet</span>
-          </h1>
+{/* Features Section */}
+<section id="features" className="py-20 px-6 bg-white">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#171717]">
+      Kenapa Pilih <span className="text-[var(--primary)]">Mei Dian?</span>
+    </h2>
 
-          <p className="text-lg md:text-xl text-gray-600 max-w-xl mb-8">
-            Mulai Rp2.000-an, cocok untuk keluarga, arisan, ulang tahun, hingga bingkisan
-          </p>
-
-          <div className="flex gap-3 justify-center md:justify-start">
-            <a
-              href="#order"
-              className="bg-[var(--primary)] text-white px-5 py-3 rounded-lg font-semibold shadow-md hover:bg-[#c92f3d] transition transform hover:scale-105"
-            >
-              Pesan
-            </a>
-            <a
-              href="#menu"
-              className="border-2 border-[var(--primary)] text-[var(--primary)] px-5 py-3 rounded-lg font-medium hover:bg-[var(--primary)] hover:text-white hover:shadow-md transition transform hover:scale-105"
-            >
-              Menu
-            </a>
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map((f, i) => (
+        <div
+          key={i}
+          className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center 
+                     hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        >
+          {/* Icon */}
+          <div className="w-16 h-16 flex items-center justify-center bg-[var(--primary)]/10 rounded-full mb-4">
+            <Image
+              src={f.icon}
+              alt={f.title}
+              width={40}
+              height={40}
+              className="object-contain"
+            />
           </div>
-        </div>
 
-        <div className="flex-1 relative mt-10 md:mt-0">
-          <Image
-            src="/menu/shumai.webp"
-            alt="Shumai Dimsum Homemade Mei Dian"
-            width={420}
-            height={420}
-            priority
-            className="mx-auto drop-shadow-xl rounded-lg"
-          />
-        </div>
-      </section>
+          {/* Title */}
+          <h3 className="text-lg font-semibold text-[#171717] mb-2">
+            {f.title}
+          </h3>
 
-      {/* Features */}
-      <section className="py-20 bg-white text-center">
-        <h2 className="text-3xl font-bold mb-10">Kenapa Harus Mei Dian?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto px-6">
-          {features.map((f, i) => (
-            <div
-              key={i}
-              className="bg-[#FFF8ED] rounded-lg shadow-md p-6 hover:shadow-lg transition transform hover:-translate-y-2"
-            >
-              <div className="text-4xl mb-3">{f.icon}</div>
-              <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
-              <p className="text-gray-600 text-sm">{f.desc}</p>
-            </div>
-          ))}
+          {/* Desc */}
+          <p className="text-gray-600 text-sm">{f.desc}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Menu Section */}
-      <section id="menu" className="py-20 bg-[#FFF8ED]">
-        <h2 className="text-3xl font-bold text-center mb-10 text-[var(--foreground)]">
-          Menu Mei Dian
-        </h2>
+<section id="menu" className="py-20 bg-[#FFF8ED]">
+  <h2 className="text-3xl font-bold text-center text-[var(--foreground)] mb-4">
+    Pilihan Menu <span className="text-[var(--primary)]">Mei Dian</span>
+  </h2>
+
+  {/* kasih jarak lebih lega */}
+  <p className="text-center text-gray-600 mb-12">
+    Cemilan hangat, sehat, dan penuh rasa. Cocok untuk keluarga, arisan, hingga bingkisan spesial
+  </p>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-6">
           {menus.map((menu, i) => (
             <FlipCard
@@ -358,9 +388,19 @@ export default function Home() {
 
           </div>
           <div className="flex-1 text-left">
-            <h2 className="text-4xl font-bold text-[var(--foreground)] mb-4">
-              Paket Party Size 🎉
-            </h2>
+            <h2 className="text-3xl font-bold text-[var(--foreground)] mb-4 flex items-center gap-2">
+  Paket <span className="text-[var(--primary)] flex items-center gap-2">
+    Party Size 
+    <Image 
+      src="/icons/party.webp" 
+      alt="Party Icon" 
+      width={32} 
+      height={32} 
+      className="inline-block"
+    />
+  </span>
+</h2>
+
             <p className="text-gray-600 mb-6">
               Pilihan tepat untuk arisan, ulang tahun, acara kantor, atau kumpul keluarga.
               Dengan isian melimpah, harga hemat, dan rasa tetap premium!
@@ -385,7 +425,9 @@ export default function Home() {
 
       {/* Order Section */}
       <section id="order" className="py-20 text-center bg-white border-t border-gray-100">
-        <h2 className="text-3xl font-bold mb-4 text-[#171717]">Pesan Sekarang</h2>
+        <h2 className="text-3xl font-bold text-center text-[var(--foreground)] mb-4">
+    Pesan <span className="text-[var(--primary)]">Sekarang</span>
+  </h2>
         <p className="text-gray-600 mb-10">
           Nikmati dimsum fresh setiap hari, pesan dengan mudah lewat aplikasi favoritmu
         </p>
@@ -436,30 +478,43 @@ export default function Home() {
           </div>
 
           <div className="bg-white p-8 rounded-xl shadow-md flex flex-col justify-between h-full">
-            <div>
-              <h2 className="text-3xl font-bold mb-4 text-[var(--foreground)]">
-                Lokasi Kami
-              </h2>
-              <div className="w-16 h-1 bg-[var(--primary)] rounded-full mb-6"></div>
+  <div>
+  <h2 className="text-3xl font-bold text-[var(--foreground)] mb-4">
+    Lokasi <span className="text-[var(--primary)]">Kami</span>
+  </h2>
 
-              <div className="space-y-4 text-gray-700">
-                <p className="flex items-start gap-2">
-                  <span className="text-2xl">📍</span>
-                  <span>
-                    Jl. Menur No.87, Ronowijayan <br />
-                    Kec. Siman, Kabupaten Ponorogo <br />
-                    Jawa Timur 63491
-                  </span>
-                </p>
-                <p className="flex items-start gap-2">
-                  <span className="text-2xl">🕒</span>
-                  <span>
-                    Senin – Minggu <br />
-                    10.00 – 21.00 WIB
-                  </span>
-                </p>
-              </div>
-            </div>
+  <div className="space-y-4 text-gray-700">
+    <p className="flex items-start gap-3">
+      <Image 
+        src="/icons/location.webp" 
+        alt="Location Icon" 
+        width={28} 
+        height={28} 
+        className="mt-1"
+      />
+      <span>
+        Jl. Menur No.87, Ronowijayan <br />
+        Kec. Siman, Kabupaten Ponorogo <br />
+        Jawa Timur 63491
+      </span>
+    </p>
+
+    <p className="flex items-start gap-3">
+      <Image 
+        src="/icons/clock.webp" 
+        alt="Clock Icon" 
+        width={28} 
+        height={28} 
+        className="mt-1"
+      />
+      <span>
+        Senin – Minggu <br />
+        10.00 – 21.00 WIB
+      </span>
+    </p>
+  </div>
+</div>
+
 
             <a
               href="https://maps.app.goo.gl/S3p4n1L5KgcxrQTa8"
