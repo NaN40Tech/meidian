@@ -1,12 +1,23 @@
 "use client";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-[#E63946] text-white pt-12 pb-6 mt-10">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+        
         {/* Brand */}
         <div>
-          <h3 className="text-2xl font-bold mb-3">Mei Dian</h3>
+          <div className="flex items-center gap-3 mb-3">
+            <Image 
+              src="/logo.webp" 
+              alt="Logo Mei Dian" 
+              width={40} 
+              height={40} 
+              className="rounded-full"
+            />
+            <h3 className="text-2xl font-bold">Mei Dian</h3>
+          </div>
           <p className="text-red-100 text-sm leading-relaxed">
             Dimsum homemade fresh setiap hari, sehat & tanpa pengawet.
           </p>
